@@ -1,0 +1,17 @@
+# E3g: triangle eigenvalues (non-product geometry)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python geometry/run_e3g.py --device cuda --out_dir results_e3g
+
+# Resolved defaults actually used (from e3g_raw.json):
+#   --K 10 --n_rect_train 5000 --n_rect_epochs 600 --rect_batch 128
+#   --n_triangle_train 400 --n_triangle_test 200 --n_finetune_epochs 200
+#   --finetune_batch 64 --finetune_lr 0.001 --fem_nx 40 --fem_ny 40
+#   --map_nL 12 --map_nalpha 12 --seed 0
+# Triangles parametrised by (L, alpha=apex angle); FEM eigensolve ground truth.
+# (A) rectangle-pretrained encoder via bounding-rectangle descriptor (L, L*tan(alpha));
+# (B) encoder fine-tuned on a small triangle library with the (L, alpha) descriptor.
+# Wall time: 91.5 s.
+
+# See geometry/results_e3g.md for the headline numbers and interpretation.

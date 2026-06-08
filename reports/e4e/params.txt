@@ -1,0 +1,15 @@
+# E4e: Schwarz convergence vs overlap width
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python schwarz/run_e4e.py --device cuda --out_dir results_e4e
+
+# Resolved defaults actually used (from e4e_raw.json):
+#   --overlaps 0.0 0.05 0.1 0.2 0.4 --nx_half 64 --n_train 5000 --n_epochs 600
+#   --batch 64 --width 64 --n_modes 32 --n_layers 4 --n_test 200
+#   --max_iter 30 --tol 1e-6 --lr 0.001 --seed 0
+# PDE: -d_xx u = f on [0,1], split at x=0.5 with overlap width delta.
+# Metric: one-step Schwarz contraction rate (learned DtN vs classical reference) vs delta.
+# Wall time: 3452.2 s (~58 min).
+
+# See schwarz/results_e4e.md for the headline numbers and interpretation.

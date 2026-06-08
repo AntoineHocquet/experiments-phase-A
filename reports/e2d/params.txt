@@ -1,0 +1,15 @@
+# E2d: three-brick curriculum (diffusion + advection + cubic reaction)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python commutator/run_e2d.py --device cuda --out_dir results_e2d
+
+# Resolved defaults actually used (from e2d_raw.json):
+#   --n_pretrain 10000 --n_pretrain_epochs 800
+#   --ns 200 500 1000 2000 5000 --n_finetune_epochs 500 --n_seeds 3
+#   --shear 0.5 --nx 128 --width 96 --n_modes 32 --n_layers 4
+#   --batch_size 128 --lr 0.001 --n_test 400 --profile_seed 0 --seed 0
+# Downstream target: Allen-Cahn-with-drift at s = 0.5.
+# Wall time: 3745.8 s (~62 min).
+
+# See commutator/results_e2d.md for the headline numbers and interpretation.

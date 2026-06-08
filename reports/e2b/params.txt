@@ -1,0 +1,12 @@
+# E2.b: Strang composition at s = 0
+# GPU run by Lorenz, 2026-05-28
+# Source CLI (re-runnable from the repo root):
+
+python commutator/run_e2b.py --device cuda \
+    --n_pretrain 10000 --n_pretrain_epochs 800 \
+    --ns 200 500 1000 2000 5000 --n_finetune_epochs 500 \
+    --n_seeds 3 --n_test 1000 \
+    --nx 128 --width 96 --n_modes 32 --n_layers 4 --batch_size 128 \
+    --out_dir results_e2b
+
+# See commutator/results_e2b.md for the headline numbers and interpretation.

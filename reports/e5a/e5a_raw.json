@@ -1,0 +1,173 @@
+{
+  "experiment": "e5a",
+  "pillar": "Cross-pillar P1 cap P2 (operator splitting with geometry brick)",
+  "hypothesis": "Replacing the neural diffusion brick of E2 with the closed-form LB-spectral diffusion semigroup sharpens the commutator signal: the data-efficiency gain at s = 0 jumps because the diffusion contribution to per-brick error vanishes, and the closed-form advantage shrinks monotonically as the shear grows.",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.88+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "shears": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "n_brick": 4000,
+    "n_joint": 8000,
+    "budgets": [
+      1000,
+      2000,
+      4000,
+      8000
+    ],
+    "n_epochs": 250,
+    "n_test": 300,
+    "nx": 128,
+    "width": 64,
+    "n_modes": 32,
+    "n_layers": 4,
+    "batch": 128,
+    "eval_dt": 0.01,
+    "profile_seed": 12345,
+    "out_dir": "results_e5a"
+  },
+  "headline": {
+    "err_cf_s0.0": 0.020618238175908726,
+    "err_nn_s0.0": 0.018352497989932697,
+    "gain_cf_s0.0": 0.2763783770665504,
+    "gain_nn_s0.0": 0.2978142792586846,
+    "gain_ratio_s0.0": 0.9280225842547907,
+    "err_cf_s0.5": 0.04367746909459432,
+    "err_nn_s0.5": 0.04703322177131971,
+    "gain_cf_s0.5": 1.0,
+    "gain_nn_s0.5": 0.3888420918690953,
+    "gain_ratio_s0.5": 2.5717380420175315,
+    "err_cf_s1.0": 0.07939299196004868,
+    "err_nn_s1.0": 0.08016303181648254,
+    "gain_cf_s1.0": 1.0,
+    "gain_nn_s1.0": 0.24618520689828516,
+    "gain_ratio_s1.0": 4.061982491129542
+  },
+  "timing": {
+    "total_seconds": 902.7701364649984,
+    "train_adv_s0.0_seconds": 71.98809885600349,
+    "train_diff_s0.0_seconds": 49.13343223600532,
+    "eval_strang_s0.0_seconds": 0.21407321200240403,
+    "train_joint_sweep_s0.0_seconds": 183.7058975630207,
+    "train_adv_s0.5_seconds": 51.02488605398685,
+    "train_diff_s0.5_seconds": 49.449110591987846,
+    "eval_strang_s0.5_seconds": 0.3380009969987441,
+    "train_joint_sweep_s0.5_seconds": 198.01388019599835,
+    "train_adv_s1.0_seconds": 51.00995101200533,
+    "train_diff_s1.0_seconds": 49.52829016899341,
+    "eval_strang_s1.0_seconds": 0.34419823199277744,
+    "train_joint_sweep_s1.0_seconds": 198.00920297700213
+  },
+  "extra": {
+    "results_per_shear": [
+      {
+        "shear": 0.0,
+        "n_composed": 8000,
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000
+        ],
+        "joint_errs": [
+          0.030506838733951252,
+          0.024106893067558605,
+          0.008185020492722591,
+          0.004850121835867564
+        ],
+        "err_cf": 0.020618238175908726,
+        "err_nn": 0.018352497989932697,
+        "gain_cf": 0.2763783770665504,
+        "gain_cf_qual": "=",
+        "gain_nn": 0.2978142792586846,
+        "gain_nn_qual": "=",
+        "gain_ratio": 0.9280225842547907
+      },
+      {
+        "shear": 0.5,
+        "n_composed": 8000,
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000
+        ],
+        "joint_errs": [
+          0.0536302886903286,
+          0.049846780796845756,
+          0.04550318171580633,
+          0.045464577774206795
+        ],
+        "err_cf": 0.04367746909459432,
+        "err_nn": 0.04703322177131971,
+        "gain_cf": 1.0,
+        "gain_cf_qual": ">=",
+        "gain_nn": 0.3888420918690953,
+        "gain_nn_qual": "=",
+        "gain_ratio": 2.5717380420175315
+      },
+      {
+        "shear": 1.0,
+        "n_composed": 8000,
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000
+        ],
+        "joint_errs": [
+          0.09087920685609181,
+          0.07993516822655995,
+          0.0907400573293368,
+          0.08201693246761958
+        ],
+        "err_cf": 0.07939299196004868,
+        "err_nn": 0.08016303181648254,
+        "gain_cf": 1.0,
+        "gain_cf_qual": ">=",
+        "gain_nn": 0.24618520689828516,
+        "gain_nn_qual": "=",
+        "gain_ratio": 4.061982491129542
+      }
+    ],
+    "shears": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "err_cf": [
+      0.020618238175908726,
+      0.04367746909459432,
+      0.07939299196004868
+    ],
+    "err_nn": [
+      0.018352497989932697,
+      0.04703322177131971,
+      0.08016303181648254
+    ],
+    "gain_cf": [
+      0.2763783770665504,
+      1.0,
+      1.0
+    ],
+    "gain_nn": [
+      0.2978142792586846,
+      0.3888420918690953,
+      0.24618520689828516
+    ],
+    "gain_ratio": [
+      0.9280225842547907,
+      2.5717380420175315,
+      4.061982491129542
+    ]
+  }
+}

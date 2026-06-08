@@ -1,0 +1,252 @@
+{
+  "args": {
+    "n_pretrain": 10000,
+    "n_pretrain_epochs": 800,
+    "pretrain_dt_min": 0.0025,
+    "pretrain_dt_max": 0.02,
+    "ns": [
+      200,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "n_finetune_epochs": 500,
+    "n_seeds": 3,
+    "n_test": 1000,
+    "test_dt_min": 0.005,
+    "test_dt_max": 0.02,
+    "nx": 128,
+    "width": 96,
+    "n_modes": 32,
+    "n_layers": 4,
+    "batch_size": 128,
+    "lr": 0.001,
+    "device": "cuda",
+    "out_dir": "results_e2b",
+    "seed": 0,
+    "load_pretrained": null
+  },
+  "Ns": [
+    200,
+    500,
+    1000,
+    2000,
+    5000
+  ],
+  "err_scratch_mean": [
+    0.09246877674013376,
+    0.032191376900300384,
+    0.013537773513235152,
+    0.017140718875452876,
+    0.023327117514175672
+  ],
+  "err_scratch_std": [
+    0.019249938427710233,
+    0.0026028204782189944,
+    0.0013230597392022937,
+    0.012175205389388067,
+    0.014353033895061788
+  ],
+  "err_ft_mean": [
+    0.008404719332853952,
+    0.0043789519113488495,
+    0.007681687634127836,
+    0.005073303104533504,
+    0.0034112500434275717
+  ],
+  "err_ft_std": [
+    0.0002961817651517684,
+    0.0008672689909146469,
+    0.0034649936116117816,
+    0.0025731022542691403,
+    0.00017904275760004482
+  ],
+  "err_zero_shot": 0.6054494008421898,
+  "err_lie_trotter": 0.007334712485317141,
+  "err_strang": 0.011627850937657058,
+  "pretrain_train_mse": 8.819268418629823e-07,
+  "rows": [
+    {
+      "N": 200,
+      "condition": "scratch",
+      "seed": 0,
+      "err": 0.11902363784611225
+    },
+    {
+      "N": 200,
+      "condition": "pretrained",
+      "seed": 0,
+      "err": 0.008049025957006961
+    },
+    {
+      "N": 200,
+      "condition": "scratch",
+      "seed": 1,
+      "err": 0.08438458293676376
+    },
+    {
+      "N": 200,
+      "condition": "pretrained",
+      "seed": 1,
+      "err": 0.008774130954407156
+    },
+    {
+      "N": 200,
+      "condition": "scratch",
+      "seed": 2,
+      "err": 0.07399810943752527
+    },
+    {
+      "N": 200,
+      "condition": "pretrained",
+      "seed": 2,
+      "err": 0.008391001087147743
+    },
+    {
+      "N": 500,
+      "condition": "scratch",
+      "seed": 0,
+      "err": 0.0285805594176054
+    },
+    {
+      "N": 500,
+      "condition": "pretrained",
+      "seed": 0,
+      "err": 0.005604963458608836
+    },
+    {
+      "N": 500,
+      "condition": "scratch",
+      "seed": 1,
+      "err": 0.0333775042090565
+    },
+    {
+      "N": 500,
+      "condition": "pretrained",
+      "seed": 1,
+      "err": 0.0037960296613164246
+    },
+    {
+      "N": 500,
+      "condition": "scratch",
+      "seed": 2,
+      "err": 0.034616067074239254
+    },
+    {
+      "N": 500,
+      "condition": "pretrained",
+      "seed": 2,
+      "err": 0.003735862614121288
+    },
+    {
+      "N": 1000,
+      "condition": "scratch",
+      "seed": 0,
+      "err": 0.015091919689439237
+    },
+    {
+      "N": 1000,
+      "condition": "pretrained",
+      "seed": 0,
+      "err": 0.002798797795549035
+    },
+    {
+      "N": 1000,
+      "condition": "scratch",
+      "seed": 1,
+      "err": 0.011858368525281549
+    },
+    {
+      "N": 1000,
+      "condition": "pretrained",
+      "seed": 1,
+      "err": 0.010479939519427717
+    },
+    {
+      "N": 1000,
+      "condition": "scratch",
+      "seed": 2,
+      "err": 0.01366303232498467
+    },
+    {
+      "N": 1000,
+      "condition": "pretrained",
+      "seed": 2,
+      "err": 0.009766325587406754
+    },
+    {
+      "N": 2000,
+      "condition": "scratch",
+      "seed": 0,
+      "err": 0.033626597840338945
+    },
+    {
+      "N": 2000,
+      "condition": "pretrained",
+      "seed": 0,
+      "err": 0.004555090679787099
+    },
+    {
+      "N": 2000,
+      "condition": "scratch",
+      "seed": 1,
+      "err": 0.004594840225763619
+    },
+    {
+      "N": 2000,
+      "condition": "pretrained",
+      "seed": 1,
+      "err": 0.002213134604971856
+    },
+    {
+      "N": 2000,
+      "condition": "scratch",
+      "seed": 2,
+      "err": 0.013200718560256064
+    },
+    {
+      "N": 2000,
+      "condition": "pretrained",
+      "seed": 2,
+      "err": 0.008451684028841555
+    },
+    {
+      "N": 5000,
+      "condition": "scratch",
+      "seed": 0,
+      "err": 0.043307262007147074
+    },
+    {
+      "N": 5000,
+      "condition": "pretrained",
+      "seed": 0,
+      "err": 0.0032169576443266124
+    },
+    {
+      "N": 5000,
+      "condition": "scratch",
+      "seed": 1,
+      "err": 0.010237086797133088
+    },
+    {
+      "N": 5000,
+      "condition": "pretrained",
+      "seed": 1,
+      "err": 0.0033677821920718998
+    },
+    {
+      "N": 5000,
+      "condition": "scratch",
+      "seed": 2,
+      "err": 0.016437003738246858
+    },
+    {
+      "N": 5000,
+      "condition": "pretrained",
+      "seed": 2,
+      "err": 0.003649010293884203
+    }
+  ],
+  "elapsed_s": 1619.637720823288
+}

@@ -1,0 +1,41 @@
+version: '3'
+
+# Task runner for the SPRIND Phase-A experiments.
+# Install: brew install go-task   (or see https://taskfile.dev for other platforms)
+# Usage:   `task` to list, `task <name>` to run.
+
+tasks:
+  default:
+    desc: List available tasks.
+    cmds:
+      - task --list
+    silent: true
+
+  clean:
+    desc: "Remove all dynamic experiment outputs (results_*/ and __pycache__/). Leaves reports/ alone."
+    cmds:
+      - task: clean:results
+      - task: clean:cache
+
+  clean:results:
+    desc: "Remove results_*/ folders produced by the run scripts (does NOT touch reports/)."
+    cmds:
+      - find . -type d -name 'results_*' -exec rm -rf {} +
+      - echo "Removed all results_*/ directories."
+
+  clean:cache:
+    desc: "Remove all __pycache__/ folders and .pyc files."
+    cmds:
+      - find . -type d -name '__pycache__' -exec rm -rf {} +
+      - find . -type f -name '*.pyc' -delete
+      - echo "Removed all __pycache__ caches."
+
+  smoke:
+    desc: "Run every kept experiment at tiny sizes on CPU (quick end-to-end check)."
+    cmds:
+      - python run_all.py --smoke
+
+  all:
+    desc: "Run every kept experiment at full sizes (hours; benefits from a GPU)."
+    cmds:
+      - python run_all.py

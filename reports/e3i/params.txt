@@ -1,0 +1,15 @@
+# E3i: 3D box eigenvalues (extension of the LB-eigenvalue encoder to three dimensions)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python geometry/run_e3i.py --device cuda --out_dir results_e3i
+
+# Resolved defaults actually used (from e3i_raw.json):
+#   --K 10 --n_train 10000 --n_epochs 1500 --batch 256 --seed 0
+# Eigenvalues of -Laplacian on [0,a]x[0,b]x[0,c] Dirichlet:
+#   lambda_{nml} = pi^2 (n^2/a^2 + m^2/b^2 + l^2/c^2).
+# Train (a,b,c) ~ Uniform(0.5,1.5)^3; in-family OOD at a in {1.8, 2.0}.
+# PASS criterion: per-mode rel-err < 5% at K = 10 on in-family OOD boxes.
+# Wall time: 187.4 s.
+
+# See geometry/results_e3i.md for the headline numbers and interpretation.

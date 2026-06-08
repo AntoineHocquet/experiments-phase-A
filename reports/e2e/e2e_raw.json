@@ -1,0 +1,154 @@
+{
+  "experiment": "e2e",
+  "pillar": "Pillar 1 (operator splitting)",
+  "hypothesis": "In the semilinear regime (linear diffusion plus Lipschitz cubic reaction) Lie-Trotter still converges at first order by the Crandall-Liggett-Brezis-Pazy theorem, so the two-brick composed model should retain a data-efficiency gain over the monolithic FNO, with the gain shrinking as gamma (reaction Lipschitz constant) grows.",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.90+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "gammas": [
+      0.5,
+      2.0,
+      5.0
+    ],
+    "n_brick": 4000,
+    "n_joint": 8000,
+    "budgets": [
+      1000,
+      2000,
+      4000,
+      8000,
+      16000
+    ],
+    "n_epochs": 250,
+    "n_test": 400,
+    "nx": 128,
+    "width": 64,
+    "n_modes": 32,
+    "n_layers": 4,
+    "batch": 128,
+    "mlp_hidden": 32,
+    "mlp_layers": 3,
+    "eval_dt": 0.01,
+    "out_dir": "results_e2e"
+  },
+  "headline": {
+    "err_lt_g0.5": 0.008637707447633147,
+    "err_st_g0.5": 0.014967281138524413,
+    "err_joint_g0.5": 0.0034102624631486833,
+    "gain_g0.5": 0.4769294724087958,
+    "err_lt_g2.0": 0.005028558778576553,
+    "err_st_g2.0": 0.012367987772449851,
+    "err_joint_g2.0": 0.01443401095457375,
+    "gain_g2.0": 1.3688924572690102,
+    "err_lt_g5.0": 0.00590817048214376,
+    "err_st_g5.0": 0.009885048493742943,
+    "err_joint_g5.0": 0.013654162408784032,
+    "gain_g5.0": 1.9366949890905898
+  },
+  "timing": {
+    "total_seconds": 1196.6988972510007,
+    "train_bricks_seconds": 91.79275443599909,
+    "eval_g0.5_seconds": 0.36621335499876295,
+    "train_joint_b1000_g0.5_seconds": 12.420128998997825,
+    "train_joint_b2000_g0.5_seconds": 24.662886183999944,
+    "train_joint_b4000_g0.5_seconds": 49.22369425400029,
+    "train_joint_b8000_g0.5_seconds": 96.76962440699936,
+    "train_joint_b16000_g0.5_seconds": 190.3041061490003,
+    "eval_g2.0_seconds": 0.10916117699889583,
+    "train_joint_b1000_g2.0_seconds": 12.130290283999784,
+    "train_joint_b2000_g2.0_seconds": 24.06874229999812,
+    "train_joint_b4000_g2.0_seconds": 47.900762512002984,
+    "train_joint_b8000_g2.0_seconds": 94.19984987800126,
+    "train_joint_b16000_g2.0_seconds": 187.65625925100176,
+    "eval_g5.0_seconds": 0.10847877899868763,
+    "train_joint_b1000_g5.0_seconds": 12.016691742999683,
+    "train_joint_b2000_g5.0_seconds": 23.804921318998822,
+    "train_joint_b4000_g5.0_seconds": 47.531635882001865,
+    "train_joint_b8000_g5.0_seconds": 94.35841959499885,
+    "train_joint_b16000_g5.0_seconds": 187.27358579400243
+  },
+  "extra": {
+    "results_per_gamma": {
+      "0.5": {
+        "err_lt": 0.008637707447633147,
+        "err_st": 0.014967281138524413,
+        "composed_err": 0.008637707447633147,
+        "err_joint_matched": 0.0034102624631486833,
+        "accuracy_ratio": 0.39481106340182104,
+        "gain": 0.4769294724087958,
+        "gain_qual": "=",
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000,
+          16000
+        ],
+        "joint_errs": [
+          0.034653504844754934,
+          0.016188939101994038,
+          0.008249837206676602,
+          0.0034102624631486833,
+          0.001275810063816607
+        ]
+      },
+      "2.0": {
+        "err_lt": 0.005028558778576553,
+        "err_st": 0.012367987772449851,
+        "composed_err": 0.005028558778576553,
+        "err_joint_matched": 0.01443401095457375,
+        "accuracy_ratio": 2.8704071260332795,
+        "gain": 1.3688924572690102,
+        "gain_qual": "=",
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000,
+          16000
+        ],
+        "joint_errs": [
+          0.03762711863964796,
+          0.0180997378192842,
+          0.010290578007698059,
+          0.01443401095457375,
+          0.0021180083276703954
+        ]
+      },
+      "5.0": {
+        "err_lt": 0.00590817048214376,
+        "err_st": 0.009885048493742943,
+        "composed_err": 0.00590817048214376,
+        "err_joint_matched": 0.013654162408784032,
+        "accuracy_ratio": 2.311064389177646,
+        "gain": 1.9366949890905898,
+        "gain_qual": "=",
+        "budgets": [
+          1000,
+          2000,
+          4000,
+          8000,
+          16000
+        ],
+        "joint_errs": [
+          0.034880297258496284,
+          0.04196572303771973,
+          0.07163628283888102,
+          0.013654162408784032,
+          0.00567217287607491
+        ]
+      }
+    },
+    "n_composed": 8000,
+    "gamma_train_range": [
+      0.25,
+      5.5
+    ]
+  }
+}

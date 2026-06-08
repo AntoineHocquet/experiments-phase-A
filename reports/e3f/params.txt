@@ -1,0 +1,16 @@
+# E3f: heat equation on disks of varying radius (LB-FNO vs standard 2D FNO)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python geometry/run_e3f.py --device cuda --out_dir results_e3f
+
+# Resolved defaults actually used (from e3f_raw.json):
+#   --nx 96 --n_train 10000 --n_epochs 800 --batch 64 --width 48
+#   --n_modes_x 24 --n_modes_y 24 --n_layers 4 --n_test 200
+#   --R_min 0.4 --R_max 1.5 --K 24 --eval_dt 0.01 --seed 0
+# PDE: d_t u = D Laplacian u on disk of radius R, Dirichlet BC; Bessel reference.
+# (A) closed-form Bessel LB-FNO (oracle eigenvalues from R), (B) FNO trained on
+# R=1 only, (C) FNO trained on full R range [0.4,1.5]. PASS: A beats B/C by >=1 order.
+# Wall time: 16313.1 s (~4.5 h).
+
+# See geometry/results_e3f.md for the headline numbers and interpretation.

@@ -1,0 +1,11 @@
+# E3b (2D): LB-FNO vs standard FNO on a varying-rectangle heat equation
+# GPU run by Lorenz, 2026-05-28
+# Source CLI (re-runnable from the repo root):
+
+python geometry/run_e3b_2d.py --device cuda \
+    --nx 96 --ny 96 --n_train 10000 --n_epochs 800 --batch 64 \
+    --width 48 --n_modes_x 24 --n_modes_y 24 --n_layers 4 \
+    --enc_train 5000 --enc_epochs 800 --n_test 200 \
+    --out_dir results_e3b_2d
+
+# See geometry/results.md (§ E3b 2D) for the headline numbers and interpretation.

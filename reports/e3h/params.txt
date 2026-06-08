@@ -1,0 +1,16 @@
+# E3h: perforated rectangles (Boolean circular hole)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python geometry/run_e3h.py --device cuda --out_dir results_e3h
+
+# Resolved defaults actually used (from e3h_raw.json):
+#   --K 10 --n_rect_pretrain 2000 --n_rect_pretrain_epochs 600
+#   --n_perf_train 2000 --n_perf_test 200 --n_epochs 600 --batch 64 --lr 0.003
+#   --fem_nx 64 --n_area_bins 6 --seed 0
+# Perforated rectangles [0,a]x[0,b] minus B((cx,cy),r); FEM-on-grid reference (mask hole).
+# (i) baseline = plain rectangle encoder (a,b), ignores the hole;
+# (ii) perf encoder consuming the 5-vector (a,b,cx,cy,r). PASS: modes under 5%.
+# Wall time: 485.6 s.
+
+# See geometry/results_e3h.md for the headline numbers and interpretation.

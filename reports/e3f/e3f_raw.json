@@ -1,0 +1,95 @@
+{
+  "experiment": "e3f",
+  "pillar": "Pillar 2 (geometry-adaptive spectral basis)",
+  "hypothesis": "On disks of varying radius R the LB-FNO (closed-form Bessel expansion with eigenvalues lambda_{mn} = (z_{mn}/R)^2) beats a standard 2D FNO by at least one order of magnitude across R in [0.4, 1.5].",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.88+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "nx": 96,
+    "n_train": 10000,
+    "n_epochs": 800,
+    "batch": 64,
+    "width": 48,
+    "n_modes_x": 24,
+    "n_modes_y": 24,
+    "n_layers": 4,
+    "n_test": 200,
+    "R_min": 0.4,
+    "R_max": 1.5,
+    "K": 24,
+    "eval_dt": 0.01,
+    "out_dir": "results_e3f"
+  },
+  "headline": {
+    "mean_err_A_inband": 1.0213437634978843e-08,
+    "mean_err_B_inband": 0.06573699963362224,
+    "mean_err_C_inband": 0.08921092809643597,
+    "mean_err_A_ood": 9.451791826424082e-09,
+    "mean_err_B_ood": 0.19796359473451353,
+    "mean_err_C_ood": 0.2084679656809506,
+    "ratio_B_over_A_inband": 6436324.573862091,
+    "ratio_C_over_A_inband": 8734662.244463861
+  },
+  "timing": {
+    "total_seconds": 16313.093619641004,
+    "train_fno_B_seconds": 7959.434108500005,
+    "train_fno_C_seconds": 8029.113049011998,
+    "eval_sweep_seconds": 324.5463971949939
+  },
+  "extra": {
+    "R_list": [
+      0.3,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.5,
+      1.8,
+      2.2
+    ],
+    "errs_A_lb_fno": [
+      5.252109579838655e-09,
+      7.244453694128305e-09,
+      9.500171774701428e-09,
+      1.029256696702509e-08,
+      1.0852264619863707e-08,
+      1.0994313513710533e-08,
+      1.1218746677948511e-08,
+      1.1391546197474336e-08,
+      1.1606910383856457e-08,
+      1.1496355515577134e-08
+    ],
+    "errs_B_fno_R1": [
+      0.5308232569135726,
+      0.25120344292954544,
+      0.0839521388662979,
+      0.036878914032131435,
+      0.021539315652335064,
+      0.01930059011443518,
+      0.02262365452828817,
+      0.024660941312322392,
+      0.0295471608126536,
+      0.033520366477314385
+    ],
+    "errs_C_fno_full": [
+      0.49235701790312303,
+      0.23001378624700008,
+      0.09099805150413885,
+      0.06248863747576252,
+      0.057601146856322887,
+      0.059143665331648665,
+      0.0615440771332942,
+      0.06268713212688454,
+      0.0653786406852305,
+      0.06766823845449835
+    ]
+  }
+}

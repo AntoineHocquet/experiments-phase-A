@@ -1,0 +1,16 @@
+# E3d: L-shape eigenvalues (re-entrant corner challenge)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python geometry/run_e3d.py --device cuda --out_dir results_e3d
+
+# Resolved defaults actually used (from e3d_raw.json):
+#   --K 10 --n_rect_train 5000 --n_rect_epochs 1200
+#   --n_lshape_train 200 --n_lshape_test 40 --n_finetune_epochs 200
+#   --batch 128 --lr_rect 0.003 --lr_finetune 0.002 --nx_fem 64 --ny_fem 64 --seed 0
+# L-shapes = Boolean difference of two rectangles; FEM-on-grid reference eigenvalues.
+# Two conditions: rectangle encoder (no cut info) vs L-aware fine-tuned encoder (cut dims).
+# PASS criterion: >= 6 of 10 modes under 5% per-mode error.
+# Wall time: 141.9 s.
+
+# See geometry/results_e3d.md for the headline numbers and interpretation.

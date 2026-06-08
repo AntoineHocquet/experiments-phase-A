@@ -1,0 +1,235 @@
+{
+  "experiment": "e2d",
+  "pillar": "Pillar 1 (operator splitting)",
+  "hypothesis": "Adding a cubic-reaction brick to the pretraining library of E2.a lets a single FNO transfer to Allen-Cahn-with-drift with strictly fewer fine-tuning samples than the two-brick curriculum, at every N (generator-coverage view of Conjecture 1).",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.88+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "n_pretrain": 10000,
+    "n_pretrain_epochs": 800,
+    "ns": [
+      200,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "n_finetune_epochs": 500,
+    "n_seeds": 3,
+    "shear": 0.5,
+    "nx": 128,
+    "width": 96,
+    "n_modes": 32,
+    "n_layers": 4,
+    "batch_size": 128,
+    "lr": 0.001,
+    "n_test": 400,
+    "profile_seed": 0,
+    "out_dir": "results_e2d"
+  },
+  "headline": {
+    "err_zero_shot_two_brick": 0.8829620033502579,
+    "err_zero_shot_three_brick": 0.34109584987163544,
+    "pretrain_mse_two_brick": 6.136266297519602e-07,
+    "pretrain_mse_three_brick": 4.5549393278820194e-07,
+    "three_brick_wins_count": 4,
+    "n_budgets": 5,
+    "speedup_2brick_N200": 2.4554176994669414,
+    "speedup_3brick_N200": 2.6806913652367808,
+    "speedup_2brick_N500": 1.2758206996113082,
+    "speedup_3brick_N500": 1.2866189723333321,
+    "speedup_2brick_N1000": 0.8688972819573383,
+    "speedup_3brick_N1000": 0.9016163893726556,
+    "speedup_2brick_N2000": 0.9368946950584383,
+    "speedup_3brick_N2000": 0.9405912815229636,
+    "speedup_2brick_N5000": 0.8532566835185107,
+    "speedup_3brick_N5000": 0.8509803136993968
+  },
+  "timing": {
+    "total_seconds": 3745.7788070860006,
+    "pretrain_2brick_seconds": 772.541622990997,
+    "pretrain_3brick_seconds": 1109.4807133439972,
+    "build_test_seconds": 0.45999147000111407,
+    "finetune_sweep_seconds": 1863.166553567
+  },
+  "extra": {
+    "aggregate": {
+      "N": [
+        200,
+        500,
+        1000,
+        2000,
+        5000
+      ],
+      "err_scratch_mean": [
+        0.22587761903802553,
+        0.10985313480099042,
+        0.06777281655619542,
+        0.06880263828982909,
+        0.06317061465233564
+      ],
+      "err_scratch_std": [
+        0.001992471718664653,
+        0.0050881195293614925,
+        0.0026291021735997504,
+        0.007710087634707727,
+        0.0029759164036964976
+      ],
+      "err_two_brick_mean": [
+        0.09199152514338493,
+        0.0861038975417614,
+        0.07799865181247394,
+        0.07343689600626628,
+        0.07403471413999796
+      ],
+      "err_two_brick_std": [
+        0.0008413000271377468,
+        0.0031309265584567435,
+        0.0007287384960867742,
+        0.0004321216315144187,
+        0.0002590540556958148
+      ],
+      "err_three_brick_mean": [
+        0.08426095669468243,
+        0.08538124896585941,
+        0.0751681284358104,
+        0.07314828410744667,
+        0.07423275678108136
+      ],
+      "err_three_brick_std": [
+        0.0007637506607927326,
+        0.002889765403433633,
+        0.00029359089239574393,
+        0.000630694766634696,
+        0.0005270828819973498
+      ],
+      "speedup_two_brick": [
+        2.4554176994669414,
+        1.2758206996113082,
+        0.8688972819573383,
+        0.9368946950584383,
+        0.8532566835185107
+      ],
+      "speedup_three_brick": [
+        2.6806913652367808,
+        1.2866189723333321,
+        0.9016163893726556,
+        0.9405912815229636,
+        0.8509803136993968
+      ]
+    },
+    "rows": [
+      {
+        "N": 200,
+        "seed": 0,
+        "scratch": 0.22667871788144112,
+        "two_brick": 0.09166429005563259,
+        "three_brick": 0.08491344936192036
+      },
+      {
+        "N": 200,
+        "seed": 1,
+        "scratch": 0.227816641330719,
+        "two_brick": 0.09314578212797642,
+        "three_brick": 0.08468013815581799
+      },
+      {
+        "N": 200,
+        "seed": 2,
+        "scratch": 0.2231374979019165,
+        "two_brick": 0.09116450324654579,
+        "three_brick": 0.08318928256630898
+      },
+      {
+        "N": 500,
+        "seed": 0,
+        "scratch": 0.11433364264667034,
+        "two_brick": 0.08415038511157036,
+        "three_brick": 0.08320009335875511
+      },
+      {
+        "N": 500,
+        "seed": 1,
+        "scratch": 0.10273669101297855,
+        "two_brick": 0.08363944850862026,
+        "three_brick": 0.08946482464671135
+      },
+      {
+        "N": 500,
+        "seed": 2,
+        "scratch": 0.11248907074332237,
+        "two_brick": 0.09052185900509357,
+        "three_brick": 0.08347882889211178
+      },
+      {
+        "N": 1000,
+        "seed": 0,
+        "scratch": 0.06567355524748564,
+        "two_brick": 0.07898646965622902,
+        "three_brick": 0.07505842857062817
+      },
+      {
+        "N": 1000,
+        "seed": 1,
+        "scratch": 0.06616479903459549,
+        "two_brick": 0.07775920629501343,
+        "three_brick": 0.07487618178129196
+      },
+      {
+        "N": 1000,
+        "seed": 2,
+        "scratch": 0.07148009538650513,
+        "two_brick": 0.07725027948617935,
+        "three_brick": 0.0755697749555111
+      },
+      {
+        "N": 2000,
+        "seed": 0,
+        "scratch": 0.07950030639767647,
+        "two_brick": 0.07398535311222076,
+        "three_brick": 0.07325405441224575
+      },
+      {
+        "N": 2000,
+        "seed": 1,
+        "scratch": 0.06162675749510527,
+        "two_brick": 0.07292923703789711,
+        "three_brick": 0.07232840918004513
+      },
+      {
+        "N": 2000,
+        "seed": 2,
+        "scratch": 0.06528085097670555,
+        "two_brick": 0.07339609786868095,
+        "three_brick": 0.07386238873004913
+      },
+      {
+        "N": 5000,
+        "seed": 0,
+        "scratch": 0.06194056384265423,
+        "two_brick": 0.07429536990821362,
+        "three_brick": 0.07407695986330509
+      },
+      {
+        "N": 5000,
+        "seed": 1,
+        "scratch": 0.0672712316736579,
+        "two_brick": 0.0736814346164465,
+        "three_brick": 0.07494193967431784
+      },
+      {
+        "N": 5000,
+        "seed": 2,
+        "scratch": 0.06030004844069481,
+        "two_brick": 0.07412733789533377,
+        "three_brick": 0.07367937080562115
+      }
+    ]
+  }
+}

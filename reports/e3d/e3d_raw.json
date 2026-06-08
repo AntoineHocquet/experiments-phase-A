@@ -1,0 +1,76 @@
+{
+  "experiment": "e3d",
+  "pillar": "Pillar 2 (geometry-adaptive spectral basis)",
+  "hypothesis": "A rectangle-pretrained encoder only partially recovers the L-shape spectrum (Weyl asymptotics carry it part of the way), but the reentrant-corner r^(2/3) singularity in the lowest modes drives per-mode errors well above 5 % unless the encoder is exposed to the cut dimensions (cx, cy) directly.",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.88+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "K": 10,
+    "n_rect_train": 5000,
+    "n_rect_epochs": 1200,
+    "n_lshape_train": 200,
+    "n_lshape_test": 40,
+    "n_finetune_epochs": 200,
+    "batch": 128,
+    "lr_rect": 0.003,
+    "lr_finetune": 0.002,
+    "nx_fem": 64,
+    "ny_fem": 64,
+    "vis_a": 1.0,
+    "vis_b": 1.0,
+    "vis_cx": 0.5,
+    "vis_cy": 0.5,
+    "out_dir": "results_e3d"
+  },
+  "headline": {
+    "rect_baseline_mean_relerr": 0.2033425271511078,
+    "lshape_finetune_mean_relerr": 0.059848107397556305,
+    "rect_baseline_modes_under_5pct": 0,
+    "lshape_finetune_modes_under_5pct": 6,
+    "rect_baseline_first_mode_relerr": 0.30114641785621643,
+    "lshape_finetune_first_mode_relerr": 0.14068524539470673,
+    "pass_six_of_ten_under_5pct": true
+  },
+  "timing": {
+    "total_seconds": 141.88735897300649,
+    "rect_pretrain_seconds": 112.40097525299643,
+    "lshape_fem_seconds": 27.404194388000178,
+    "rect_eval_seconds": 0.0008015079947654158,
+    "lshape_finetune_seconds": 0.8186326469876803,
+    "lshape_eval_seconds": 0.0004241279966663569
+  },
+  "extra": {
+    "err_rect_per_mode": [
+      0.30114641785621643,
+      0.18258729577064514,
+      0.22392788529396057,
+      0.1727718561887741,
+      0.2412511259317398,
+      0.14768818020820618,
+      0.18463760614395142,
+      0.22172017395496368,
+      0.20228131115436554,
+      0.15541353821754456
+    ],
+    "err_ft_per_mode": [
+      0.14068524539470673,
+      0.0761319026350975,
+      0.05486053228378296,
+      0.047225553542375565,
+      0.04751294478774071,
+      0.041045770049095154,
+      0.05579588562250137,
+      0.04927002266049385,
+      0.04329838976264,
+      0.0426548533141613
+    ],
+    "rect_history_last": 2.5126808395725675e-05,
+    "ft_history_last": 0.006017900537699461
+  }
+}

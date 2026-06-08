@@ -1,0 +1,16 @@
+# E5a: closed-form LB diffusion brick inside Strang (P1 x P2 bridge)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python commutator_geometry/run_e5a.py --device cuda --out_dir results_e5a
+
+# Resolved defaults actually used (from e5a_raw.json):
+#   --shears 0.0 0.5 1.0 --n_brick 4000 --n_joint 8000
+#   --budgets 1000 2000 4000 8000 --n_epochs 250 --n_test 300
+#   --nx 128 --width 64 --n_modes 32 --n_layers 4 --batch 128
+#   --eval_dt 0.01 --profile_seed 12345 --seed 0
+# Closed-form LB diffusion brick: IDST(exp(-D lambda_k dt) DST(u)); advection learned.
+# Metric: data-efficiency gain (samples-to-match / 8000); gain_ratio = CF / all-neural.
+# Wall time: 902.8 s (~15 min).
+
+# See commutator_geometry/results_e5a.md for the headline numbers and interpretation.

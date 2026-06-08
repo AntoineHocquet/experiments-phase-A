@@ -1,0 +1,101 @@
+{
+  "experiment": "e3h",
+  "pillar": "Pillar 2 (geometry-adaptive spectral basis)",
+  "hypothesis": "A circular hole in a rectangle shifts the Dirichlet spectrum predictably (Rayleigh-quotient perturbation proportional to the hole-area fraction). A small dedicated encoder fine-tuned on the 5-vector descriptor (a, b, cx, cy, r) should recover the perturbed eigenvalues, while a plain-rectangle baseline (which sees only (a, b)) is expected to degrade as the hole area grows.",
+  "device": "cuda",
+  "torch_version": "2.5.1",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA A40",
+  "platform": "Linux-6.12.88+deb13-amd64-x86_64-with-glibc2.41",
+  "parameters": {
+    "device": "cuda",
+    "smoke": false,
+    "seed": 0,
+    "K": 10,
+    "n_rect_pretrain": 2000,
+    "n_rect_pretrain_epochs": 600,
+    "n_perf_train": 2000,
+    "n_perf_test": 200,
+    "n_epochs": 600,
+    "batch": 64,
+    "lr": 0.003,
+    "fem_nx": 64,
+    "n_area_bins": 6,
+    "out_dir": "results_e3h"
+  },
+  "headline": {
+    "mean_rel_err_baseline": 0.195251926779747,
+    "mean_rel_err_perf": 0.02565709687769413,
+    "median_rel_err_baseline": 0.1694585382938385,
+    "median_rel_err_perf": 0.019567087292671204,
+    "fraction_modes_under_5pct_baseline": 0.0,
+    "fraction_modes_under_5pct_perf": 1.0,
+    "n_test_kept": 200
+  },
+  "timing": {
+    "total_seconds": 485.62345245499455,
+    "baseline_pretrain_seconds": 51.767691336004646,
+    "build_perf_train_seconds": 363.7636897640041,
+    "build_perf_test_seconds": 36.970614065998234,
+    "perf_train_seconds": 32.19966644101078,
+    "eval_seconds": 0.0016719700070098042
+  },
+  "extra": {
+    "err_per_mode_baseline": [
+      0.41323617100715637,
+      0.28115347027778625,
+      0.2563561797142029,
+      0.19888906180858612,
+      0.21736741065979004,
+      0.18519282341003418,
+      0.1790769100189209,
+      0.18498440086841583,
+      0.16846725344657898,
+      0.1467924565076828
+    ],
+    "err_per_mode_perf": [
+      0.013492562808096409,
+      0.022782105952501297,
+      0.03387252613902092,
+      0.027032893151044846,
+      0.029628101736307144,
+      0.029469255357980728,
+      0.03025774657726288,
+      0.028859812766313553,
+      0.026274625211954117,
+      0.02236080728471279
+    ],
+    "area_bin_centres": [
+      0.02089218298594157,
+      0.06267654895782471,
+      0.10446091492970785,
+      0.146245280901591,
+      0.18802964687347412,
+      0.22981401284535727
+    ],
+    "area_bin_baseline": [
+      0.08739522844552994,
+      0.20270779728889465,
+      0.268302321434021,
+      0.3473188877105713,
+      0.4107610881328583,
+      0.46970364451408386
+    ],
+    "area_bin_perf": [
+      0.023500531911849976,
+      0.02394571714103222,
+      0.026283960789442062,
+      0.029591862112283707,
+      0.03437699377536774,
+      0.03723904862999916
+    ],
+    "area_bin_counts": [
+      89,
+      42,
+      35,
+      15,
+      13,
+      6
+    ]
+  }
+}

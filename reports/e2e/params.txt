@@ -1,0 +1,16 @@
+# E2e: semilinear regime (Crandall-Liggett-Brezis-Pazy splitting)
+# GPU run by Lorenz, 2026-05-30 (NVIDIA A40, torch 2.5.1, CUDA)
+# Source CLI (re-runnable from the repo root; all knobs are argparse defaults):
+
+python commutator/run_e2e.py --device cuda --out_dir results_e2e
+
+# Resolved defaults actually used (from e2e_raw.json):
+#   --gammas 0.5 2.0 5.0
+#   --n_brick 4000 --n_joint 8000 --budgets 1000 2000 4000 8000 16000
+#   --n_epochs 250 --n_test 400 --nx 128 --width 64 --n_modes 32 --n_layers 4
+#   --batch 128 --mlp_hidden 32 --mlp_layers 3 --eval_dt 0.01 --seed 0
+# PDE: d_t u = D d_xx u - gamma u (1 - u^2) (linear diffusion + cubic reaction).
+# Composed = 2 * n_brick = 8000 samples; matched-compute joint baseline at b=8000.
+# Wall time: 1196.7 s (~20 min).
+
+# See commutator/results_e2e.md for the headline numbers and interpretation.

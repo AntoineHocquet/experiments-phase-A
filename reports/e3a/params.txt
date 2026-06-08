@@ -1,0 +1,9 @@
+# E3a: LB eigenvalue prediction (intervals + rectangles)
+# GPU run by Lorenz, 2026-05-28
+# Source CLI (re-runnable from the repo root):
+
+python geometry/run_e3a.py --device cuda \
+    --K 20 --n_train 5000 --n_epochs 1200 --batch 256 \
+    --out_dir results_e3a
+
+# See geometry/results.md (§ E3a) for the headline numbers and interpretation.
